@@ -36,6 +36,16 @@ body {
   width: 20px;
 }
 
+#current-location-button {
+  background: #39b5f3;
+  color: white;
+}
+
+#current-location-butto:hover {
+  background: white;
+  color: #39b5f3;
+}
+
 .day {
   text-align: left;
 }
@@ -74,6 +84,10 @@ li {
   position: relative;
   top: 35px;
   font-size: 25px;
+}
+
+.active {
+  font-weight: bold;
 }
 
 .temperature-box {

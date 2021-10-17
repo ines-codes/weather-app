@@ -31,39 +31,6 @@ function formatDate() {
 let currentTime = document.querySelector("#date");
 currentTime.innerHTML = formatDate();
 
-// Display the forecast
-
-function displayForecast(response) {
-  let forecastDaily = response.data.daily;
-
-  let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row">`;
-
-  forecastDaily.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `
-          <div class="col-2 forecast" id="forecast">
-            <br />
-            <p id="next">${forecastDay.dt}</p>
-            <p><img src="icons/cloud.png" alt="" class="forecast-icons" /></p>
-            <p><strong>${forecastDay.temp.max}</strong>${forecastDay.temp.min}</p>
-          </div>
-        `;
-  });
-
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-}
-
-// // Forecast coordinates
-// function getForecast(coordinates) {
-//   let apiKey = "836945bb1ae780c68d086d693cfcb666";
-//   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric
-// `;
-
-//   axis.get(apiUrl).then(displayForecast);
-// }
 /// Display a city and weather on load
 
 function search(city) {
@@ -99,10 +66,12 @@ function showTemperature(response) {
     response.data.wind.speed
   );
 
+  // For the conversion
+  celsiusTemperature = response.data.main.temp;
+  // End
+
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
-
-  // getForecast(response.data.coord);
 
   showIcon(response);
 }
@@ -127,8 +96,6 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 search("Lisboa");
-// Forecast
-displayForecast();
 
 // Changing today's icon according to the description
 
@@ -138,3 +105,34 @@ function showIcon(response) {
   iconElement.setAttribute("src", `icons/${response.data.weather[0].icon}.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+
+// Changing from Fahrenheit to Celsius and Vice Versa
+
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitValue = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitValue);
+  // Remove active class from Celsius link
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  //end
+}
+
+function displayCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  // Add active class from Celsius link
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  //end
+}
+
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsius);
