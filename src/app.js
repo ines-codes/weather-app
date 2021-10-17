@@ -64,6 +64,10 @@ function showTemperature(response) {
     response.data.wind.speed
   );
 
+  // For the conversion
+  celsiusTemperature = response.data.main.temp;
+  // End
+
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
 
@@ -98,3 +102,34 @@ function showIcon(response) {
   iconElement.setAttribute("src", `icons/${response.data.weather[0].icon}.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+
+// Changing from Fahrenheit to Celsius and Vice Versa
+
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitValue = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitValue);
+  // Remove active class from Celsius link
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  //end
+}
+
+function displayCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  // Add active class from Celsius link
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  //end
+}
+
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsius);

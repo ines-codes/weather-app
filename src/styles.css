@@ -40,6 +40,16 @@ body {
   text-align: left;
 }
 
+#current-location-button {
+  background: #39b5f3;
+  color: white;
+}
+
+#current-location-butto:hover {
+  background: white;
+  color: #39b5f3;
+}
+
 h1 {
   font-family: "Fredoka One", cursive;
   font-weight: 900;
@@ -90,8 +100,12 @@ li {
 } */
 
 .today-icon {
-  width: 75px;
+  width: 110px;
   text-align: center;
+}
+
+.active {
+  font-weight: bold;
 }
 
 span#description {
@@ -113,7 +127,7 @@ p#next {
   text-align: center;
   font-size: 16px;
   color: white;
-  background-color: #42bff5;
+  background-color: #39b5f3;
   border-radius: 5px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   margin: 5px;
