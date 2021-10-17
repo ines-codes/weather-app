@@ -14,7 +14,7 @@ body {
   margin-bottom: 10rem;
   padding: 0;
   background-attachment: fixed;
-  zoom: 80%;
+  zoom: 70%;
 }
 
 .weather-app {
@@ -126,4 +126,20 @@ p#next {
 
 .forecast-icons {
   width: 65px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer,
+#footer-container {
+  font-family: "Fredoka One", cursive;
+  color: white;
+  position: relative;
+  top: 70px;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 auto;
 }
