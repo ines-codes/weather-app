@@ -56,6 +56,7 @@ function displayForecast() {
 }
 
 /// Display a city and weather on load
+
 function search(city) {
   let apiKey = "836945bb1ae780c68d086d693cfcb666";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -73,7 +74,17 @@ function handleSubmit(event) {
   search(city);
 }
 
+// Forecast coordinates
+function getForecast(coordinates) {
+  let apiKey = "836945bb1ae780c68d086d693cfcb666";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric
+`;
+
+  axis.get(apiURL).then(displayForecast);
+}
+
 //Showing the temperature after getting a response from the form
+
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
 
@@ -95,10 +106,13 @@ function showTemperature(response) {
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
 
+  getForecast(response.data.coord);
+
   showIcon(response);
 }
 
 // Displaying current data after response from the button
+
 function searchLocation(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
