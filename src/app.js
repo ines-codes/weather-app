@@ -66,6 +66,8 @@ function showTemperature(response) {
 
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+
+  showIcon(response);
 }
 
 // Displaying current data after response from the button
@@ -87,3 +89,12 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 search("Lisboa");
+
+// Changing today's icon according to the description
+
+function showIcon(response) {
+  let iconElement = document.querySelector("#today-icon");
+
+  iconElement.setAttribute("src", `icons/${response.data.weather[0].icon}.png`);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+}

@@ -89,7 +89,7 @@ li {
   text-align: center;
 } */
 
-.day-icon {
+.today-icon {
   width: 75px;
   text-align: center;
 }
@@ -129,8 +129,12 @@ p#next {
 }
 
 a {
-  text-decoration: none;
-  color: white;
+  text-decoration: none !important;
+  color: white !important;
+}
+
+a:hover {
+  color: #3183ec !important;
 }
 
 .footer,
