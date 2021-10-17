@@ -33,20 +33,21 @@ currentTime.innerHTML = formatDate();
 
 // Display the forecast
 
-function displayForecast() {
+function displayForecast(response) {
+  let forecastDaily = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
-  let days = ["thu", "fri", "sat"];
 
-  days.forEach(function (day) {
+  forecastDaily.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `
           <div class="col-2 forecast" id="forecast">
             <br />
-            <p id="next">${day}</p>
+            <p id="next">${forecastDay.dt}</p>
             <p><img src="icons/cloud.png" alt="" class="forecast-icons" /></p>
-            <p><strong>23°</strong> 16°</p>
+            <p><strong>${forecastDay.temp.max}</strong>${forecastDay.temp.min}</p>
           </div>
         `;
   });
@@ -55,6 +56,14 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+// // Forecast coordinates
+// function getForecast(coordinates) {
+//   let apiKey = "836945bb1ae780c68d086d693cfcb666";
+//   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric
+// `;
+
+//   axis.get(apiUrl).then(displayForecast);
+// }
 /// Display a city and weather on load
 
 function search(city) {
@@ -72,15 +81,6 @@ function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search-input-text").value;
   search(city);
-}
-
-// Forecast coordinates
-function getForecast(coordinates) {
-  let apiKey = "836945bb1ae780c68d086d693cfcb666";
-  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric
-`;
-
-  axis.get(apiURL).then(displayForecast);
 }
 
 //Showing the temperature after getting a response from the form
@@ -106,7 +106,7 @@ function showTemperature(response) {
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
 
-  getForecast(response.data.coord);
+  // getForecast(response.data.coord);
 
   showIcon(response);
 }
