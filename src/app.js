@@ -31,6 +31,30 @@ function formatDate() {
 let currentTime = document.querySelector("#date");
 currentTime.innerHTML = formatDate();
 
+// Display the forecast
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["thu", "fri", "sat"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+          <div class="col-2 forecast" id="forecast">
+            <br />
+            <p id="next">${day}</p>
+            <p><img src="icons/cloud.png" alt="" class="forecast-icons" /></p>
+            <p><strong>23°</strong> 16°</p>
+          </div>
+        `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 /// Display a city and weather on load
 function search(city) {
   let apiKey = "836945bb1ae780c68d086d693cfcb666";
@@ -93,6 +117,8 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 search("Lisboa");
+// Forecast
+displayForecast();
 
 // Changing today's icon according to the description
 

@@ -39,6 +39,7 @@
                 placeholder="Enter a city..."
                 class="form-control"
                 id="search-input-text"
+                autocomplete="off"
               />
             </div>
             <div class="col-4">
@@ -95,52 +96,19 @@
         <!-- NEXT DAYS FORECAST -->
 
         <p id="next">Next 5 days</p>
-        <div class="row">
-          <div class="col forecast">
-            <br />
-            <p id="next">Thur</p>
-            <p><img src="icons/cloud.png" alt="" class="forecast-icons" /></p>
-            <p><strong>23°</strong> 16°</p>
-          </div>
 
-          <div class="col forecast">
-            <br />
-            <p id="next">Fri</p>
-            <p><img src="icons/rainy.png" alt="" class="forecast-icons" /></p>
-
-            <p><strong>23°</strong> 16°</p>
-          </div>
-          <div class="col forecast">
-            <br />
-            <p id="next">Sat</p>
-            <p><img src="icons/sun.png" alt="" class="forecast-icons" /></p>
-
-            <p><strong>23°</strong> 16°</p>
-          </div>
-          <div class="col forecast">
-            <br />
-            <p id="next">Sun</p>
-            <p><img src="icons/thunder.png" alt="" class="forecast-icons" /></p>
-
-            <p><strong>23°</strong> 16°</p>
-          </div>
-          <div class="col forecast">
-            <br />
-            <p id="next">Mon</p>
-            <p><img src="icons/cloud.png" alt="" class="forecast-icons" /></p>
-
-            <p><strong>23°</strong> 16°</p>
-          </div>
-        </div>
+        <div class="weather-forecast" id="forecast"></div>
       </div>
     </div>
+
+    <!-- Footer -->
     <div class="row">
       <div class="col" id="footer-container">
         <br />
         <br />
         <small>
           <a href="ttps://github.com/ines-codes/weather-app"
-            >Open-source code</a
+            >Open-sourced code</a
           >
           by Inês</small
         >

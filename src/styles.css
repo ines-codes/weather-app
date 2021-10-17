@@ -20,7 +20,7 @@ body {
 .weather-app {
   color: white;
   text-align: center;
-  font-size: 20px;
+
   position: relative;
   margin: 20px auto;
   padding: 5px 30px;
@@ -81,23 +81,23 @@ li {
 
 .temperature,
 .units {
+  position: relative;
+  top: 35px;
+  font-size: 25px;
+}
+
+.temperature-box {
   color: white;
   font-family: "Merriweather", sans-serif;
   background: #8ad8f8;
   box-shadow: 0.5rem 0.5rem white;
   border-radius: 5px;
+  height: 160px;
 }
 
 .temperature {
   font-size: 60px;
 }
-/* .temperature-box {
-  background: #8ad8f8;
-  box-shadow: 0.5rem 0.5rem white;
-  border-radius: 5px;
-  height: 70px;
-  text-align: center;
-} */
 
 .today-icon {
   width: 110px;
