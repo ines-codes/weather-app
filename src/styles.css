@@ -88,6 +88,8 @@ li {
 
 .active {
   font-weight: bold;
+  background: white !important;
+  color: #4fa5d5 !important;
 }
 
 .description-box {
