@@ -52,7 +52,7 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `
-            <div class="col-2" id="forecast">
+            <div class="col" id="forecast">
               <br />
               <p id="next">${formatDay(forecastDay.dt)}</p>
               
@@ -185,10 +185,10 @@ function displayCelsius(event) {
 
 let celsiusTemperature = null;
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
+let fahrenheitLink = document.querySelector("#fahrenheit-button");
 fahrenheitLink.addEventListener("click", displayFahrenheit);
 
-let celsiusLink = document.querySelector("#celsius-link");
+let celsiusLink = document.querySelector("#celsius-button");
 celsiusLink.addEventListener("click", displayCelsius);
 
 search("Lisboa");

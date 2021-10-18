@@ -90,17 +90,33 @@ li {
   font-weight: bold;
 }
 
+.description-box {
+  background: #d2efff;
+  color: #4fa5d5;
+  border-radius: 5px;
+  width: 110px;
+  text-align: center;
+}
+
+.degrees-box {
+  background-color: transparent;
+  border-radius: 3px;
+  color: white;
+  border: 1px solid white;
+}
+
 .temperature-box {
   color: white;
   font-family: "Merriweather", sans-serif;
   background: #8ad8f8;
-  box-shadow: 0.5rem 0.5rem white;
+
   border-radius: 5px;
-  height: 160px;
+  height: 150px;
 }
 
 .temperature {
-  font-size: 60px;
+  font-size: 90px;
+  top: 10px;
 }
 
 .today-icon {

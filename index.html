@@ -72,17 +72,31 @@
               <img src="" alt="" id="today-icon" class="today-icon" />
             </p>
             <p>
+              <div class="description-box">
               <span id="description"><strong></strong></span>
+              </div>
             </p>
           </div>
-          <div class="col-4 temperature-box">
-            <span class="temperature" id="temperature"></span
-            ><span class="units">
-              <a href="#" id="celsius-link" class="active">°C</a> /
-              <a href="#" id="fahrenheit-link">°F</a>
-            </span>
-          </div>
           <div class="col-4">
+            <div class="temperature-box">
+            <span class="temperature" id="temperature"></span
+            ></div>
+            </div>
+            <div class="col-4">
+            <span class="units">
+              <button type="button" class="active degrees-box" id="celsius-button">
+                °C
+              </button>
+              <button type="button" class="degrees-box" id="fahrenheit-button">
+                °F
+              </button>
+            </span>
+  
+        <br>
+        <br>
+        <br>
+
+        <br>
             <div class="details">
               <ul>
                 <li>Humidity: <span id="humidity"></span>%</li>
