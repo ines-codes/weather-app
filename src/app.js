@@ -90,10 +90,6 @@ function showTemperature(response) {
     response.data.wind.speed
   );
 
-  /// Display the forecast
-  displayForecast();
-  ///end
-
   // For the conversion
   celsiusTemperature = response.data.main.temp;
   // End
@@ -102,6 +98,10 @@ function showTemperature(response) {
     response.data.weather[0].main;
 
   showIcon(response);
+
+  /// Getting lat and lon for the forecast
+  getForecast(response.data.coord);
+  ///end
 }
 
 // Displaying current data after response from the button
@@ -139,10 +139,6 @@ function showIcon(response) {
 
   iconElement.setAttribute("src", `icons/${response.data.weather[0].icon}.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
-
-  /// Getting lat and lon for the forecast
-  getForecast(response.data.coord);
-  ///end
 }
 
 // Changing from Fahrenheit to Celsius and Vice Versa
