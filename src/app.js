@@ -31,24 +31,43 @@ function formatDate() {
 let currentTime = document.querySelector("#date");
 currentTime.innerHTML = formatDate();
 
+/// Fixing the days on the forecast
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 /// Display the forecast
 
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast-display");
   let forecastHTML = `<div class="row">`;
-  let days = ["thu", "fri", "sat"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
             <div class="col-2" id="forecast">
               <br />
-              <p id="next">${day}</p>
-              <p><img src="icons/01d.png" alt="" class="forecast-icons" /></p>
-              <p><strong>23°</strong> 16°</p>
+              <p id="next">${formatDay(forecastDay.dt)}</p>
+              
+              <p><img src="icons/${
+                forecastDay.weather[0].icon
+              }.png" alt="" class="forecast-icons" /></p>
+              <p><span class="weather-forecast-temperature-max"><strong> ${Math.round(
+                forecastDay.temp.max
+              )}°</strong> </span>
+          <span class="weather-forecast-temperature-min"> ${Math.round(
+            forecastDay.temp.min
+          )}° </span></p>
             </div>
           `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
