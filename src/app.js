@@ -31,6 +31,28 @@ function formatDate() {
 let currentTime = document.querySelector("#date");
 currentTime.innerHTML = formatDate();
 
+/// Display the forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast-display");
+  let forecastHTML = `<div class="row">`;
+  let days = ["thu", "fri", "sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+            <div class="col-2" id="forecast">
+              <br />
+              <p id="next">${day}</p>
+              <p><img src="icons/01d.png" alt="" class="forecast-icons" /></p>
+              <p><strong>23°</strong> 16°</p>
+            </div>
+          `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 /// Display a city and weather on load
 
 function search(city) {
@@ -66,6 +88,10 @@ function showTemperature(response) {
     response.data.wind.speed
   );
 
+  /// For the forecast
+  displayForecast();
+  ///end
+
   // For the conversion
   celsiusTemperature = response.data.main.temp;
   // End
@@ -94,8 +120,6 @@ form.addEventListener("submit", handleSubmit);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
-
-search("Lisboa");
 
 // Changing today's icon according to the description
 
@@ -136,3 +160,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsius);
+
+search("Lisboa");

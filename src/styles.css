@@ -59,7 +59,7 @@ h1 {
 }
 
 .city-name {
-  width: 300px;
+  width: 200px;
   background-color: white;
   border-radius: 5px;
   box-shadow: -0.5rem -0.5rem #8ad8f8;
@@ -123,7 +123,7 @@ p#next {
   text-align: center;
 }
 
-.forecast {
+#forecast {
   text-align: center;
   font-size: 16px;
   color: white;
@@ -134,7 +134,7 @@ p#next {
   transition: 0.4s ease-in-out transform, 0.4s ease-in-out;
 }
 
-.forecast:hover {
+#forecast:hover {
   transform: translate3d(0px, -16px, 0px);
 }
 
