@@ -123,6 +123,9 @@ function showTemperature(response) {
   /// Getting lat and lon for the forecast
   getForecast(response.data.coord);
   ///end
+
+  //Calling function
+  changingBackground();
 }
 
 // Displaying current data after response from the button
@@ -207,13 +210,9 @@ function changingBackground() {
 
   // Cloudy
 
-  if (description === "Clouds") {
+  if (description.innerHTML === "Clouds") {
     document.body.style.background = `linear-gradient(#F717CF #F3E2F6)`;
     document.body.style.backgroundAttachment = `fixed`;
-
-    temperature.style.color = `#4EBCF1`;
+    temperatureBox.style.backgroundColor = `#800000`;
   }
 }
-
-//Calling function
-changingBackground();
