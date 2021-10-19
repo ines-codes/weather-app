@@ -218,5 +218,7 @@ function changingBackground() {
     temperatureBox.style.backgroundColor = `#FF99CC`;
   } else if (description.innerHTML === "Snow") {
     temperatureBox.style.backgroundColor = `#33FF99`;
+  } else if (description.innerHTML === "Clear") {
+    temperatureBox.style.backgroundColor = `#42bff5`;
   }
 }
