@@ -207,18 +207,44 @@ function changingBackground() {
   let currentLocationButton = document.querySelector(
     "#current-location-button"
   );
+  let cityName = document.querySelector(".city-name");
 
-  // Cloudy
-
-  if (description.innerHTML === "Clouds") {
-    document.body.style.background = `linear-gradient(#F717CF #F3E2F6)`;
+  ///fog
+  if (description.innerHTML === "Fog") {
+    document.body.style.background = `linear-gradient(#5d9ced #a8e0f7)`;
     document.body.style.backgroundAttachment = `fixed`;
-    temperatureBox.style.backgroundColor = `#800000`;
-  } else if (description.innerHTML === "Fog") {
-    temperatureBox.style.backgroundColor = `#FF99CC`;
+    temperatureBox.style.backgroundColor = `#aed4e4`;
+    temperature.style.color = `#4371ac`;
+    currentLocationButton.style.background = `#aed4e4`;
+    currentLocationButton.style.color = `#4371ac`;
+    description.style.color = `#3a6cad`;
+    descriptionBox.style.background = `#c3e9f9`;
+    cityName.style.color = `#a9d6e8`;
+
+    /// clouds
+  } else if (description.innerHTML === "Clear") {
+    document.body.style.background = `linear-gradient(#77a3cd #e9e9e9)`;
+    document.body.style.backgroundAttachment = `fixed`;
+    temperatureBox.style.backgroundColor = `#42bff5`;
+    cityName.style.color = `#8ad8f8`;
+    cityName.style.boxShadow = `-0.5rem -0.5rem #8ad8f8`;
+    descriptionBox.style.background = `#d2efff`;
+    description.style.color = `#4fa5d5`;
+    currentLocationButton.style.background = `#42bff5`;
+
+    ///snow
   } else if (description.innerHTML === "Snow") {
     temperatureBox.style.backgroundColor = `#33FF99`;
-  } else if (description.innerHTML === "Clear") {
-    temperatureBox.style.backgroundColor = `#42bff5`;
+
+    /// clear
+  } else if (description.innerHTML === "Rain") {
+    temperatureBox.style.backgroundColor = `#9300fc`;
+    temperature.style.color = `#FFFFFF`;
+    descriptionBox.style.background = `#e0c2fe`;
+    description.style.color = `#FFFFFF`;
+    currentLocationButton.style.background = `#9865cb`;
+    currentLocationButton.style.color = `#FFFFFF`;
+    cityName.style.color = `#a65dda`;
+    cityName.style.boxShadow = `-0.5rem -0.5rem #a65dda`;
   }
 }

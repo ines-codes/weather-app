@@ -92,7 +92,7 @@ li {
 .active {
   font-weight: bold;
   background: white !important;
-  color: #4fa5d5 !important;
+  color: #000000 !important;
 }
 
 .description-box {
@@ -101,7 +101,7 @@ li {
   border-radius: 5px;
   width: 110px;
   text-align: center;
-  top:20px
+
   padding: 0 10px;
   margin: 0 auto;
 }
