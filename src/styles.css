@@ -3,11 +3,11 @@ body {
   background: #00d2ff; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     #3183ec,
-    #51c1f0
+    #69caf2
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     #3183ec,
-    #51c1f0
+    #69caf2
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   margin-top: 0px;
   margin-left: 0px;
@@ -37,11 +37,13 @@ body {
 }
 
 #current-location-button {
-  background: #39b5f3;
+  background: #42bff5;
   color: white;
+  border: none;
+  transition: all 200ms ease-in-out;
 }
 
-#current-location-butto:hover {
+#current-location-button:hover {
   background: white;
   color: #39b5f3;
 }
@@ -59,10 +61,11 @@ h1 {
 }
 
 .city-name {
-  width: 200px;
+  min-width: 200px;
   background-color: white;
   border-radius: 5px;
   box-shadow: -0.5rem -0.5rem #8ad8f8;
+  width: fit-content;
 }
 
 ul {
@@ -98,6 +101,8 @@ li {
   border-radius: 5px;
   width: 110px;
   text-align: center;
+  padding: 0 10px;
+  margin: 0 auto;
 }
 
 .degrees-box {
@@ -109,8 +114,8 @@ li {
 
 .temperature-box {
   color: white;
-  background: #8ad8f8;
-  border-radius: 5px;
+  background: #42bff5;
+  border-radius: 10px;
   height: 150px;
 }
 
@@ -135,6 +140,7 @@ span#description {
 
 p#next {
   font-family: "Fredoka One", cursive;
+  letter-spacing: 2px;
   color: white;
   font-size: 20px;
   text-align: center;

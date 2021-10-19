@@ -91,6 +91,8 @@ function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search-input-text").value;
   search(city);
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
 }
 
 //Showing the temperature after getting a response from the form
@@ -192,3 +194,26 @@ let celsiusLink = document.querySelector("#celsius-button");
 celsiusLink.addEventListener("click", displayCelsius);
 
 search("Lisboa");
+
+// Changing colors
+function changingBackground() {
+  let description = document.querySelector("#description");
+  let descriptionBox = document.querySelector(".description-box");
+  let temperatureBox = document.querySelector(".temperature-box");
+  let temperature = document.querySelector(".temperature");
+  let currentLocationButton = document.querySelector(
+    "#current-location-button"
+  );
+
+  // Cloudy
+
+  if (description === "Clouds") {
+    document.body.style.background = `linear-gradient(#F717CF #F3E2F6)`;
+    document.body.style.backgroundAttachment = `fixed`;
+
+    temperature.style.color = `#4EBCF1`;
+  }
+}
+
+//Calling function
+changingBackground();
