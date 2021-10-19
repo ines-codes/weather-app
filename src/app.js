@@ -209,21 +209,22 @@ function changingBackground() {
   );
   let cityName = document.querySelector(".city-name");
 
-  ///fog
-  if (description.innerHTML === "Fog") {
-    document.body.style.background = `linear-gradient(#5d9ced #a8e0f7)`;
+  ///Clouds
+  if (description.innerHTML === "Clouds") {
+    document.body.style.background = `linear-gradient(#77a3cd, #e9e9e9)`;
     document.body.style.backgroundAttachment = `fixed`;
-    temperatureBox.style.backgroundColor = `#aed4e4`;
-    temperature.style.color = `#4371ac`;
-    currentLocationButton.style.background = `#aed4e4`;
-    currentLocationButton.style.color = `#4371ac`;
-    description.style.color = `#3a6cad`;
-    descriptionBox.style.background = `#c3e9f9`;
-    cityName.style.color = `#a9d6e8`;
+    temperatureBox.style.backgroundColor = `#4d759c`;
+    temperature.style.color = `#FFFFFF`;
+    currentLocationButton.style.background = `#4d759c`;
+    currentLocationButton.style.color = `#FFFFFF`;
+    description.style.color = `#032e55`;
+    descriptionBox.style.background = `#eaf6fb`;
+    cityName.style.color = `#94c2d5`;
+    cityName.style.boxShadow = `-0.5rem -0.5rem #94c2d5`;
 
-    /// clouds
+    /// clear
   } else if (description.innerHTML === "Clear") {
-    document.body.style.background = `linear-gradient(#77a3cd #e9e9e9)`;
+    document.body.style.background = `linear-gradient(#3183ec, #69caf2)`;
     document.body.style.backgroundAttachment = `fixed`;
     temperatureBox.style.backgroundColor = `#42bff5`;
     cityName.style.color = `#8ad8f8`;
@@ -236,15 +237,30 @@ function changingBackground() {
   } else if (description.innerHTML === "Snow") {
     temperatureBox.style.backgroundColor = `#33FF99`;
 
-    /// clear
+    /// rain
   } else if (description.innerHTML === "Rain") {
+    document.body.style.background = `linear-gradient(#7f00ff, #edd4ff)`;
+    document.body.style.backgroundAttachment = `fixed`;
     temperatureBox.style.backgroundColor = `#9300fc`;
     temperature.style.color = `#FFFFFF`;
     descriptionBox.style.background = `#e0c2fe`;
-    description.style.color = `#FFFFFF`;
+    description.style.color = `#4c0082`;
     currentLocationButton.style.background = `#9865cb`;
     currentLocationButton.style.color = `#FFFFFF`;
     cityName.style.color = `#a65dda`;
     cityName.style.boxShadow = `-0.5rem -0.5rem #a65dda`;
+
+    /// Fog
+  } else if (description.innerHTML === "Fog") {
+    document.body.style.background = `linear-gradient(#77a3cd, #e9e9e9)`;
+    document.body.style.backgroundAttachment = `fixed`;
+    temperatureBox.style.backgroundColor = `#4c6781`;
+    temperature.style.color = `#FFFFFF`;
+    currentLocationButton.style.background = `#4c6781`;
+    currentLocationButton.style.color = `#FFFFFF`;
+    description.style.color = `#032e55`;
+    descriptionBox.style.background = `#eaf6fb`;
+    cityName.style.color = `#94c2d5`;
+    cityName.style.boxShadow = `-0.5rem -0.5rem #94c2d5`;
   }
 }
