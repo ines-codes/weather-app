@@ -214,5 +214,9 @@ function changingBackground() {
     document.body.style.background = `linear-gradient(#F717CF #F3E2F6)`;
     document.body.style.backgroundAttachment = `fixed`;
     temperatureBox.style.backgroundColor = `#800000`;
+  } else if (description.innerHTML === "Fog") {
+    temperatureBox.style.backgroundColor = `#FF99CC`;
+  } else if (description.innerHTML === "Snow") {
+    temperatureBox.style.backgroundColor = `#33FF99`;
   }
 }
