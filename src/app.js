@@ -307,18 +307,19 @@ function changingBackground() {
 
     ///Mist
   } else if (description.innerHTML === "Mist") {
-    document.body.style.background = `linear-gradient(#7f00ff, #edd4ff)`;
+    document.body.style.background = `linear-gradient(#6198cc, #a7bfd5)`;
     document.body.style.backgroundAttachment = `fixed`;
     temperatureBox.forEach(function (temperatureElement) {
-      temperatureElement.style.backgroundColor = `#9300fc`;
+      temperatureElement.style.backgroundColor = `#56a0bd`;
     });
     temperature.style.color = `#FFFFFF`;
-    descriptionBox.style.background = `#e0c2fe`;
-    description.style.color = `#4c0082`;
-    currentLocationButton.style.background = `#9865cb`;
+    currentLocationButton.style.background = `#56a0bd`;
     currentLocationButton.style.color = `#FFFFFF`;
-    cityName.style.color = `#a65dda`;
-    cityName.style.boxShadow = `-0.5rem -0.5rem #a65dda`;
+    currentLocationButton.style.border = `#FFFFFF`;
+    description.style.color = `#76a2cc`;
+    descriptionBox.style.background = `#e1edf2`;
+    cityName.style.color = `#94c2d5`;
+    cityName.style.boxShadow = `-0.5rem -0.5rem #94c2d5`;
     date.style.color = `#FFFFFF`;
 
     /// Haze
@@ -340,18 +341,19 @@ function changingBackground() {
   }
   /// Drizzle
   else if (description.innerHTML === "Drizzle") {
-    document.body.style.background = `linear-gradient(#4f1ffb, #edd4ff)`;
+    document.body.style.background = `linear-gradient(#6198cc, #a7bfd5)`;
     document.body.style.backgroundAttachment = `fixed`;
     temperatureBox.forEach(function (temperatureElement) {
-      temperatureElement.style.backgroundColor = `#9300fc`;
+      temperatureElement.style.backgroundColor = `#56a0bd`;
     });
     temperature.style.color = `#FFFFFF`;
-    descriptionBox.style.background = `#e0c2fe`;
-    description.style.color = `#4c0082`;
-    currentLocationButton.style.background = `#9865cb`;
+    currentLocationButton.style.background = `#56a0bd`;
     currentLocationButton.style.color = `#FFFFFF`;
-    cityName.style.color = `#a65dda`;
-    cityName.style.boxShadow = `-0.5rem -0.5rem #a65dda`;
+    currentLocationButton.style.border = `#FFFFFF`;
+    description.style.color = `#76a2cc`;
+    descriptionBox.style.background = `#e1edf2`;
+    cityName.style.color = `#94c2d5`;
+    cityName.style.boxShadow = `-0.5rem -0.5rem #94c2d5`;
     date.style.color = `#FFFFFF`;
   }
   /// Thunderstorm
