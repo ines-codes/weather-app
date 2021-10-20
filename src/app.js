@@ -51,7 +51,7 @@ function displayForecast(response) {
     if (index < 5) {
       let bgColor = "";
       if (forecastDay.weather[0].main === "Clear") {
-        bgColor = "#41DAD7";
+        bgColor = "#5ADFD1";
       } else if (forecastDay.weather[0].main === "Clouds") {
         bgColor = "#63c8f4";
       } else if (forecastDay.weather[0].main === "Rain") {
@@ -235,7 +235,8 @@ function changingBackground() {
 
     /// clear
   } else if (description.innerHTML === "Clear") {
-    document.body.style.background = `linear-gradient(#00d4ff, #92ec54)`;
+    document.body.style.background = `linear-gradient(#00d4ff, #cfed00
+)`;
     document.body.style.backgroundAttachment = `fixed`;
     temperatureBox.forEach(function (temperatureElement) {
       temperatureElement.style.backgroundColor = `#7fd569`;
@@ -245,6 +246,7 @@ function changingBackground() {
     descriptionBox.style.background = `#d0fcc5`;
     description.style.color = `#2ca15a`;
     currentLocationButton.style.background = `#7fd569`;
+    document.a.style.color = "#000000";
 
     ///snow
   } else if (description.innerHTML === "Snow") {
@@ -272,14 +274,32 @@ function changingBackground() {
     document.body.style.background = `linear-gradient(#6198cc, #a7bfd5)`;
     document.body.style.backgroundAttachment = `fixed`;
     temperatureBox.forEach(function (temperatureElement) {
-      temperatureElement.style.backgroundColor = `#3d86d0`;
+      temperatureElement.style.backgroundColor = `#56a0bd`;
     });
     temperature.style.color = `#FFFFFF`;
-    currentLocationButton.style.background = `#2a7bcc`;
+    currentLocationButton.style.background = `#449ec2`;
     currentLocationButton.style.color = `#FFFFFF`;
+    currentLocationButton.style.border = `#FFFFFF`;
     description.style.color = `#76a2cc`;
     descriptionBox.style.background = `#e1edf2`;
     cityName.style.color = `#94c2d5`;
     cityName.style.boxShadow = `-0.5rem -0.5rem #94c2d5`;
+
+    ///Mist
+  } else if (description.innerHTML === "Mist") {
+    document.body.style.background = `linear-gradient(#7f00ff, #edd4ff)`;
+    document.body.style.backgroundAttachment = `fixed`;
+    temperatureBox.forEach(function (temperatureElement) {
+      temperatureElement.style.backgroundColor = `#9300fc`;
+    });
+    temperature.style.color = `#FFFFFF`;
+    descriptionBox.style.background = `#e0c2fe`;
+    description.style.color = `#4c0082`;
+    currentLocationButton.style.background = `#9865cb`;
+    currentLocationButton.style.color = `#FFFFFF`;
+    cityName.style.color = `#a65dda`;
+    cityName.style.boxShadow = `-0.5rem -0.5rem #a65dda`;
+
+    /// Fog
   }
 }
