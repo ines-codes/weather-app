@@ -59,7 +59,7 @@ function displayForecast(response) {
       } else if (forecastDay.weather[0].main === "Fog") {
         bgColor = "#8AAED1";
       } else if (forecastDay.weather[0].main === "Snow") {
-        bgColor = "#dbdada";
+        bgColor = "#b3f0ea";
       }
 
       forecastHTML =
@@ -229,6 +229,7 @@ function changingBackground() {
     temperatureBox.forEach(function (temperatureElement) {
       temperatureElement.style.backgroundColor = `#42bff5`;
     });
+    temperature.style.color = `#FFFFFF`;
     cityName.style.color = `#8ad8f8`;
     cityName.style.boxShadow = `-0.5rem -0.5rem #8ad8f8`;
     descriptionBox.style.background = `#d2efff`;
@@ -252,9 +253,18 @@ function changingBackground() {
 
     ///snow
   } else if (description.innerHTML === "Snow") {
+    document.body.style.background = `linear-gradient(#ace8e2, #7ee4d9)`;
+    document.body.style.backgroundAttachment = `fixed`;
     temperatureBox.forEach(function (temperatureElement) {
-      temperatureElement.style.backgroundColor = `#33FF99`;
+      temperatureElement.style.backgroundColor = `#effffb`;
     });
+    temperature.style.color = `#00736e`;
+    descriptionBox.style.background = `#effffb`;
+    description.style.color = `#00a19a`;
+    currentLocationButton.style.background = `#00736e`;
+    currentLocationButton.style.color = `#FFFFFF`;
+    cityName.style.color = `#00a19a`;
+    cityName.style.boxShadow = `-0.5rem -0.5rem #00a19a`;
 
     /// rain
   } else if (description.innerHTML === "Rain") {
@@ -320,7 +330,7 @@ function changingBackground() {
   }
   /// Drizzle
   else if (description.innerHTML === "Drizzle") {
-    document.body.style.background = `linear-gradient(#7f00ff, #edd4ff)`;
+    document.body.style.background = `linear-gradient(#4f1ffb, #edd4ff)`;
     document.body.style.backgroundAttachment = `fixed`;
     temperatureBox.forEach(function (temperatureElement) {
       temperatureElement.style.backgroundColor = `#9300fc`;
@@ -332,7 +342,5 @@ function changingBackground() {
     currentLocationButton.style.color = `#FFFFFF`;
     cityName.style.color = `#a65dda`;
     cityName.style.boxShadow = `-0.5rem -0.5rem #a65dda`;
-
-    /// Fog
   }
 }
