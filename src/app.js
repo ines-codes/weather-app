@@ -49,10 +49,21 @@ function displayForecast(response) {
 
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
+      let bgColor = "";
+      if (forecastDay.weather[0].main === "Clear") {
+        bgColor = "#41DAD7";
+      } else if (forecastDay.weather[0].main === "Clouds") {
+        bgColor = "#63c8f4";
+      } else if (forecastDay.weather[0].main === "Rain") {
+        bgColor = "#d1a4ff";
+      } else if (forecastDay.weather[0].main === "Fog") {
+        bgColor = "#8AAED1";
+      }
+
       forecastHTML =
         forecastHTML +
         `
-            <div class="col" id="forecast">
+            <div class="col" id="forecast" style="background-color: ${bgColor}">
               <br />
               <p id="next">${formatDay(forecastDay.dt)}</p>
               
@@ -72,6 +83,9 @@ function displayForecast(response) {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+
+  //Calling function
+  changingBackground();
 }
 
 /// Display a city and weather on load
@@ -123,9 +137,6 @@ function showTemperature(response) {
   /// Getting lat and lon for the forecast
   getForecast(response.data.coord);
   ///end
-
-  //Calling function
-  changingBackground();
 }
 
 // Displaying current data after response from the button
@@ -202,7 +213,7 @@ search("Lisboa");
 function changingBackground() {
   let description = document.querySelector("#description");
   let descriptionBox = document.querySelector(".description-box");
-  let temperatureBox = document.querySelector(".temperature-box");
+  let temperatureBox = document.querySelectorAll(".temperature-box");
   let temperature = document.querySelector(".temperature");
   let currentLocationButton = document.querySelector(
     "#current-location-button"
@@ -211,37 +222,43 @@ function changingBackground() {
 
   ///Clouds
   if (description.innerHTML === "Clouds") {
-    document.body.style.background = `linear-gradient(#77a3cd, #e9e9e9)`;
-    document.body.style.backgroundAttachment = `fixed`;
-    temperatureBox.style.backgroundColor = `#4d759c`;
-    temperature.style.color = `#FFFFFF`;
-    currentLocationButton.style.background = `#4d759c`;
-    currentLocationButton.style.color = `#FFFFFF`;
-    description.style.color = `#032e55`;
-    descriptionBox.style.background = `#eaf6fb`;
-    cityName.style.color = `#94c2d5`;
-    cityName.style.boxShadow = `-0.5rem -0.5rem #94c2d5`;
-
-    /// clear
-  } else if (description.innerHTML === "Clear") {
     document.body.style.background = `linear-gradient(#3183ec, #69caf2)`;
     document.body.style.backgroundAttachment = `fixed`;
-    temperatureBox.style.backgroundColor = `#42bff5`;
+    temperatureBox.forEach(function (temperatureElement) {
+      temperatureElement.style.backgroundColor = `#42bff5`;
+    });
     cityName.style.color = `#8ad8f8`;
     cityName.style.boxShadow = `-0.5rem -0.5rem #8ad8f8`;
     descriptionBox.style.background = `#d2efff`;
     description.style.color = `#4fa5d5`;
     currentLocationButton.style.background = `#42bff5`;
 
+    /// clear
+  } else if (description.innerHTML === "Clear") {
+    document.body.style.background = `linear-gradient(#00d4ff, #92ec54)`;
+    document.body.style.backgroundAttachment = `fixed`;
+    temperatureBox.forEach(function (temperatureElement) {
+      temperatureElement.style.backgroundColor = `#7fd569`;
+    });
+    cityName.style.color = `#9dd98d`;
+    cityName.style.boxShadow = `-0.5rem -0.5rem #9dd98d`;
+    descriptionBox.style.background = `#d0fcc5`;
+    description.style.color = `#2ca15a`;
+    currentLocationButton.style.background = `#7fd569`;
+
     ///snow
   } else if (description.innerHTML === "Snow") {
-    temperatureBox.style.backgroundColor = `#33FF99`;
+    temperatureBox.forEach(function (temperatureElement) {
+      temperatureElement.style.backgroundColor = `#33FF99`;
+    });
 
     /// rain
   } else if (description.innerHTML === "Rain") {
     document.body.style.background = `linear-gradient(#7f00ff, #edd4ff)`;
     document.body.style.backgroundAttachment = `fixed`;
-    temperatureBox.style.backgroundColor = `#9300fc`;
+    temperatureBox.forEach(function (temperatureElement) {
+      temperatureElement.style.backgroundColor = `#9300fc`;
+    });
     temperature.style.color = `#FFFFFF`;
     descriptionBox.style.background = `#e0c2fe`;
     description.style.color = `#4c0082`;
@@ -252,14 +269,16 @@ function changingBackground() {
 
     /// Fog
   } else if (description.innerHTML === "Fog") {
-    document.body.style.background = `linear-gradient(#77a3cd, #e9e9e9)`;
+    document.body.style.background = `linear-gradient(#6198cc, #a7bfd5)`;
     document.body.style.backgroundAttachment = `fixed`;
-    temperatureBox.style.backgroundColor = `#4c6781`;
+    temperatureBox.forEach(function (temperatureElement) {
+      temperatureElement.style.backgroundColor = `#3d86d0`;
+    });
     temperature.style.color = `#FFFFFF`;
-    currentLocationButton.style.background = `#4c6781`;
+    currentLocationButton.style.background = `#2a7bcc`;
     currentLocationButton.style.color = `#FFFFFF`;
-    description.style.color = `#032e55`;
-    descriptionBox.style.background = `#eaf6fb`;
+    description.style.color = `#76a2cc`;
+    descriptionBox.style.background = `#e1edf2`;
     cityName.style.color = `#94c2d5`;
     cityName.style.boxShadow = `-0.5rem -0.5rem #94c2d5`;
   }
