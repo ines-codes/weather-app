@@ -221,6 +221,7 @@ function changingBackground() {
     "#current-location-button"
   );
   let cityName = document.querySelector(".city-name");
+  let date = document.querySelector("#date");
 
   ///Clouds
   if (description.innerHTML === "Clouds") {
@@ -265,6 +266,7 @@ function changingBackground() {
     currentLocationButton.style.color = `#FFFFFF`;
     cityName.style.color = `#00a19a`;
     cityName.style.boxShadow = `-0.5rem -0.5rem #00a19a`;
+    date.style.color = `#01625e`;
 
     /// rain
   } else if (description.innerHTML === "Rain") {
@@ -342,5 +344,22 @@ function changingBackground() {
     currentLocationButton.style.color = `#FFFFFF`;
     cityName.style.color = `#a65dda`;
     cityName.style.boxShadow = `-0.5rem -0.5rem #a65dda`;
+  }
+  /// Thunderstorm
+  else if (description.innerHTML === "Thunderstorm") {
+    document.body.style.background = `linear-gradient(#7f00ff, #edd4ff)`;
+    document.body.style.backgroundAttachment = `fixed`;
+    temperatureBox.forEach(function (temperatureElement) {
+      temperatureElement.style.backgroundColor = `#9300fc`;
+    });
+    temperature.style.color = `#FFFFFF`;
+    descriptionBox.style.background = `#e0c2fe`;
+    description.style.color = `#4c0082`;
+    currentLocationButton.style.background = `#9865cb`;
+    currentLocationButton.style.color = `#FFFFFF`;
+    cityName.style.color = `#a65dda`;
+    cityName.style.boxShadow = `-0.5rem -0.5rem #a65dda`;
+
+    /// Fog
   }
 }
