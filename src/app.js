@@ -60,6 +60,8 @@ function displayForecast(response) {
         bgColor = "#8AAED1";
       } else if (forecastDay.weather[0].main === "Snow") {
         bgColor = "#b3f0ea";
+      } else if (forecastDay.weather[0].main === "Drizzle") {
+        bgColor = "#8AAED1";
       }
 
       forecastHTML =
@@ -246,13 +248,13 @@ function changingBackground() {
     temperatureBox.forEach(function (temperatureElement) {
       temperatureElement.style.backgroundColor = `#7fd569`;
     });
+    date.style.color = `#FFFFFF`;
     cityName.style.color = `#9dd98d`;
+    temperature.style.color = `#FFFFFF`;
     cityName.style.boxShadow = `-0.5rem -0.5rem #9dd98d`;
     descriptionBox.style.background = `#d0fcc5`;
     description.style.color = `#2ca15a`;
     currentLocationButton.style.background = `#7fd569`;
-    document.a.style.color = "#000000";
-    date.style.color = `#FFFFFF`;
 
     ///snow
   } else if (description.innerHTML === "Snow") {
@@ -320,15 +322,7 @@ function changingBackground() {
     date.style.color = `#FFFFFF`;
 
     /// Haze
-  } else if (
-    (description.innerHTML === "Haze",
-    "Smoke",
-    "Dust",
-    "Sand",
-    "Ash",
-    "Squall",
-    "Tornado")
-  ) {
+  } else if (description.innerHTML === "Haze") {
     document.body.style.background = `linear-gradient(#6198cc, #a7bfd5)`;
     document.body.style.backgroundAttachment = `fixed`;
     temperatureBox.forEach(function (temperatureElement) {
